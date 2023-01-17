@@ -1,0 +1,18 @@
+<div class="my-3 list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <h5>{{todo.sno}}</h5>
+    <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+    <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+            <h6 [ngClass]="{'strike': !todo.active,'mb-0':true}">{{todo.title}}</h6>
+            <p [ngClass]="{'strike': !todo.active,'mb-0':true}" class="mb-0 opacity-75">{{todo.desc}}</p>
+        </div>
+        <div class="d-flex flex-column justify-content-end">
+            <small class="opacity-50 text-nowrap">{{todo.active?"Active":"Done"}}</small>
+            <div>
+                <input type="checkbox" [checked]="!todo.active" class="form-check-input" name="check" id="check" (click)="onCheck(todo)">
+                <label for="check">Toggle Todo</label>
+            </div>
+            <button class="btn-danger btn btn-sm" (click)="onClick(todo)">Delete</button>
+        </div>
+    </div>
+</div>
